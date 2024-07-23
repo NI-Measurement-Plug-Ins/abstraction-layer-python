@@ -1,12 +1,12 @@
-# Contributing to \<reponame\> 
+# Contributing to Abstraction Layer in Measurement Plug-In for Python
 
-Contributions to \<reponame\> are welcome from all!
+Contributions to Abstraction Layer in Measurement Plug-In for Python are welcome from all!
 
-\<reponame\> is managed via [git](https://git-scm.com), with the canonical upstream
-repository hosted on [GitHub](https://github.com/ni/<reponame>/).
+Abstraction Layer in Measurement Plug-In for Python is managed via [git](https://git-scm.com), with
+the canonical upstream repository hosted on [GitHub](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python).
 
-\<reponame\> follows a pull-request model for development.  If you wish to
-contribute, you will need to create a GitHub account, fork this project, push a
+Abstraction Layer in Measurement Plug-In for Python follows a pull-request model for development. If
+you wish to contribute, you will need to create a GitHub account, fork this project, push a
 branch with your changes to your project, and then submit a pull request.
 
 Please remember to sign off your commits (e.g., by using `git commit -s` if you
@@ -20,6 +20,9 @@ this repository.
 See [GitHub's official documentation](https://help.github.com/articles/using-pull-requests/) for more details.
 
 # Getting Started
+
+This repository contains the workflow and measurement plug-in examples showcasing how to implement
+Hardware Abstraction Layer (HAL) and Functional Abstraction Layer (FAL).
 
 - TODO: include build steps here.
 
@@ -57,5 +60,5 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 (taken from [developercertificate.org](https://developercertificate.org/))
 
-See [LICENSE](https://github.com/ni/<reponame>/blob/main/LICENSE)
-for details about how \<reponame\> is licensed.
+See [LICENSE](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/LICENSE)
+for details about how Abstraction Layer in Measurement Plug-In for Python is licensed.

@@ -1,4 +1,4 @@
-# GitHub Repo Template
+# Abstraction Layer in Measurement Plug-In for Python
 
 GitHub Repo Template is a template for creation of open source projects made
 available on GitHub. It includes a permissive open source license, a developer
