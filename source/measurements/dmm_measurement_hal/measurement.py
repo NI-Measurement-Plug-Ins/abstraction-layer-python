@@ -21,7 +21,7 @@ measurement_service = nims.MeasurementService(
 
 
 @measurement_service.register_measurement
-@measurement_service.configuration("pin_name", nims.DataType.IOResource, "NI_DMM_PIN")
+@measurement_service.configuration("pin_name", nims.DataType.IOResource, "NI_DMM_Pin")
 @measurement_service.configuration(
     "measurement_type",
     nims.DataType.Enum,
@@ -37,20 +37,8 @@ def measure(
     range: float,
     resolution_digits: float,
 ) -> Tuple[float]:
-    """Perform a measurement using an DMM.
-
-    Args:
-        pin_name: The pin name to which the instrument session need to be connected.
-
-        measurement_type: DMM Measurement Types.
-
-        range: The range defines the valid values to which the measurement can be set.
-
-        resolution_digits: The number of digits to which the measurement is rounded.
-
-    Returns:
-        The measured value.
-    """
+    """Perform a measurement using an DMM."""
+    
     logging.info(
         "Starting measurement: pin_name=%s measurement_type=%s range=%g resolution_digits=%g",
         pin_name,

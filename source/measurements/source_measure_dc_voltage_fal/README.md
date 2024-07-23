@@ -1,7 +1,7 @@
 # Source Measure DC Voltage Measurement
 
-An example measurement plug-in to demonstrate Functional Abstraction Layer (FAL) by sourcing a DC
-voltage and measuring the same using a mix of instrument types.
+This is a measurement plug-in example that sources and measures a DC voltage using a mix of
+instruments with the Functional Abstraction Layer (FAL).
 
 ## Features
 
@@ -13,12 +13,6 @@ voltage and measuring the same using a mix of instrument types.
   - Uses a DC-Power instrument connected to a specific pin for sourcing DC Voltage.
   - Uses the same DC-Power instrument or a different instrument for measuring the DC Voltage for all
     selected pin/site combinations.
-- Includes a TestStand sequence that demonstrates configuring the pin map, registering instrument
-  sessions with the session management service, and executing a measurement.
-  - The TestStand sequence manages the pin map, along with the registration and deregistration of
-    sessions, within the `Setup` and `Cleanup` parts of the main sequence. For scenarios involving
-    **Test UUTs** and the batch processing model, it's recommended to relocate these actions to the
-    ProcessSetup and ProcessCleanup callbacks.
 - Uses the NI gRPC Device Server to allow sharing instrument sessions with other measurement
   services when running measurements from TestStand.
 
@@ -61,6 +55,7 @@ voltage and measuring the same using a mix of instrument types.
 - NI-DMM 2023 Q4 or later
 - NI-VISA 2024 Q1 or later
 - NI-488.2 and/or NI-Serial
+- Recommended: TestStand 2021 SP1 or later
 
 ## Required Hardware
 
@@ -69,14 +64,13 @@ Supported instrument models:
 - NI-DCPower (e.g. PXIe-4141)
 - NI-DMM (e.g. PXIe-4081)
 - Keysight 34401A DMM
-- Recommended: TestStand 2021 SP1 or later
 
 ## To use a physical instrument
 
 - Connect the instrument to a supported interface on the computer, such as GPIB or serial.
-- Launch NI-MAX or NI Hardware Configuration Utility.
-- Update the alias of NI DCPower to `NI-DCPower`.
-- Update the alias of NI DMM to `NI-DMM`.
+- Launch NI MAX or NI Hardware Configuration Utility.
+- Update the alias of the NI-DCPower instrument to `NI-DCPower`.
+- Update the alias of the NI-DMM instrument to `NI-DMM`.
 - Update the alias of Keysight 34401A DMM to `VISA-DMM`.
 
 ## To simulate NI-DCPower, NI-DMM and Keysight DMM Using PyVISA-sim
@@ -111,7 +105,7 @@ follow the steps below:
 
 ## NOTE
 
-- This measurement uses the `SourceMeasureDCVoltageFAL.pinmap` file, which includes one DC-Power
+- The `.\demo_files\SourceMeasureDCVoltageFAL.pinmap` for this measurement includes one DC-Power
   instrument and two custom DMM instruments: `GPIB0::3::INSTR (simulated)` and `VISA-DMM(physical)`,
   both identified with the instrument type ID `KeysightDmm`. Currently, the `create_dmm_sessions`
   and `destroy_dmm_sessions methods` only support initializing a single session of a specific

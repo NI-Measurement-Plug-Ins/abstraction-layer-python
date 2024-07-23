@@ -2673,7 +2673,7 @@
 																					<value>pin_name</value>
 																				</Name>
 																				<ArgumentValue classname='ExprValue'>
-																					<value>"NI_DMM_PIN"</value>
+																					<value>"NI_DMM_Pin"</value>
 																				</ArgumentValue>
 																				<Direction classname='Str'>
 																					<value>In</value>

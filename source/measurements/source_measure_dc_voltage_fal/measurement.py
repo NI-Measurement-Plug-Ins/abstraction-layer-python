@@ -46,30 +46,8 @@ def measure(
     resolution_digits: float,
     measure_pin: str,
 ) -> Tuple[float]:
-    """Source DC voltage using NI SMU and measure the same using an NI SMU or DMM.
-
-    Args:
-        voltage_level: The voltage level to source.
-
-        voltage_level_range: The range defines the valid values to which the voltage level can be
-            set. 
-
-        current_limit: The current limit to set.
-
-        current_limit_range: The range defines the valid values to which the current limit can be
-            set. 
-
-        source_delay: Determines when, in seconds, the device generates the Source Complete event.
-
-        source_pin: The pin name to which the source instrument session is connected.
-
-        resolution_digits: The number of digits to which the measurement is rounded.
-
-        measure_pin: The pin name to which the measure instrument session is connected.
-
-    Returns:
-        The measured voltage value.
-    """
+    """Source DC voltage using NI SMU and measure the same using an NI SMU or DMM."""
+    
     logging.info(
         """Starting measurement: pin_names=%s voltage_level=%g voltage_level_range=%g
         current_limit=%g current_limit_range=%g source_delay=%g resolution_digits=%g""",

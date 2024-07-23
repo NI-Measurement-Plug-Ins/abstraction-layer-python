@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "source_measure_dc_voltage_fal"
-version = "0.1.0"
+version = "1.0.0"
 package-mode = false
 description = "Measurement plug-in example to source DC voltage using NI SMU and measure the same using an NI SMU or DMM."
 authors = ["National Instruments"]
@@ -30,7 +30,7 @@ grpc-stubs = "^1.53"
 # ni-measurement-plugin-sdk-service = {git = "https://github.com/ni/measurement-plugin-python.git", subdirectory = "packages/service"}
 
 [build-system]
-requires = ["poetry-core^1.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]

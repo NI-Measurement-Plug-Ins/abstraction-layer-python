@@ -1,4 +1,4 @@
-"""Initialize a DMM session."""
+"""Declares an abstract class for the DMM HAL and defines DMM session initialization functions."""
 
 import contextlib
 import importlib
@@ -38,7 +38,7 @@ class DmmBase(ABC):
         range: float,
         resolution_digits: float,
     ) -> None:
-        """Configures the common properties of the measurement."""
+        """Configure the common properties of the measurement."""
         pass
 
     @abstractmethod
@@ -83,7 +83,7 @@ def initialize(
             session or attach to an existing session.
 
     Yields:
-        DMM session object.
+        A DMM session.
     """
     with measurement_context.reserve_session(pin_name) as reservation:
         session = _get_instrument_session(reservation.session_info.instrument_type_id)
@@ -118,7 +118,7 @@ def create_dmm_sessions(
             session or attach to an existing session.
 
     Yields:
-        List of session information.
+        A List of session information.
     """
     with session_management_client.reserve_sessions(pin_map_context) as reservation:
         for session_info in reservation.session_info:
@@ -152,7 +152,7 @@ def destroy_dmm_sessions(
             session or attach to an existing session.
 
     Yields:
-        List of session information.
+        A List of session information.
     """
     with session_management_client.reserve_all_registered_sessions() as reservation:
         for session_info in reservation.session_info:

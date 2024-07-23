@@ -1,7 +1,7 @@
 # DMM Measurement
 
-A measurement plug-in example to acquire a single measurement with a DMM using Hardware Abstraction
-Layer (HAL).
+This is a measurement plug-in example that performs a measurement using a DMM with Hardware
+Abstraction Layer (HAL).
 
 ## Features
 
@@ -13,12 +13,6 @@ Layer (HAL).
     models.
 - Pin-aware, supporting one session and one pin
   - Uses the same selected measurement function and range for all selected pin/site combinations.
-- Includes a TestStand sequence that demonstrates configuring the pin map, registering instrument
-  sessions with the session management service, and executing a measurement.
-  - The TestStand sequence manages the pin map, along with the registration and deregistration of
-    sessions, within the `Setup` and `Cleanup` parts of the main sequence. For scenarios involving
-    **Test UUTs** and the batch processing model, it's recommended to relocate these actions to the
-    ProcessSetup and ProcessCleanup callbacks.
 - Uses the NI gRPC Device Server to allow sharing instrument sessions with other measurement
   services when running measurements from TestStand.
 
@@ -57,6 +51,7 @@ Layer (HAL).
 - NI-DMM 2023 Q1 or later
 - NI-VISA 2024 Q1 or later
 - NI-488.2 and/or NI-Serial
+- Recommended: TestStand 2021 SP1 or later
 
 ## Required Hardware
 
@@ -64,13 +59,12 @@ Supported instrument models:
 
 - NI-DMM (e.g. PXIe-4081).
 - Keysight 34401A DMM.
-- Recommended: TestStand 2021 SP1 or later
 
 ## To use a physical instrument
 
 - Connect the instrument to a supported interface on the computer, such as GPIB or serial.
-- Launch NI-MAX or NI Hardware Configuration Utility.
-- Update the alias of NI DMM to `NI-DMM`.
+- Launch NI MAX or NI Hardware Configuration Utility.
+- Update the alias of the NI-DMM instrument to `NI-DMM`.
 - Update the alias of Keysight 34401A DMM to `VISA-DMM`.
 
 ## To simulate NI-DMM and Keysight DMM Using PyVISA-sim
@@ -101,7 +95,7 @@ follow the steps below:
 
 ## NOTE
 
-- This measurement uses the `DmmMeasurementHAL.pinmap` file, which includes two custom DMM instruments:
+- - The `.\demo_files\DmmMeasurementHAL.pinmap` for this measurement includes two custom DMM instruments:
   `GPIB0::3::INSTR (simulated)` and `VISA-DMM (physical)`, both identified with the instrument
   type ID `KeysightDmm`. Currently, the `create_dmm_sessions` and `destroy_dmm_sessions methods`
   only support initializing a single session of a specific instrument type ID. Therefore, before

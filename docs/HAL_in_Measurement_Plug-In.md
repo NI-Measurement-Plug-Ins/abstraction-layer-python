@@ -1,4 +1,4 @@
-# Creating a HAL for Use in Measurement Plug-Ins
+# Creating a HAL for Use in Measurement Plug-ins
 
 Hardware Abstraction Layer (HAL) enables users to develop applications agnostic of instrument models
 of a type (like DMM). HAL in measurement plug-ins allows users to work with various instrument
@@ -7,7 +7,7 @@ models without modifying the implementation. This HAL implementation leverages p
 ## Pre-requisites
 
 * Fundamental knowledge of HAL.
-* Understanding of the session management in the measurement plug-in.
+* Understanding of the session management in the measurement plug-ins.
 * Intermediate working experience in Python.
 
 ## Steps to implement HAL for a new instrument type
@@ -31,7 +31,7 @@ models without modifying the implementation. This HAL implementation leverages p
 
 ``` bash
 
-<instrument_type>_hal
+<hal_root_directory>
    ├── __init__.py
    ├── <instrument_type>.py
    ├── <NI_instrument_type>
@@ -68,7 +68,7 @@ dmm_hal
 
 ```
 
-## NOTE
+## Note
 
 1. Directory names for different NI instrument types.
 

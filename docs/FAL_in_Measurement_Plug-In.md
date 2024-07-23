@@ -1,4 +1,4 @@
-# Creating a FAL for Use in Measurement Plug-Ins
+# Creating a FAL for Use in Measurement Plug-ins
 
 The Functional Abstraction Layer (FAL) is a higher-level abstraction layer that provides a more
 functional view of the system. It focuses on abstracting the functionality rather than the
@@ -7,7 +7,7 @@ hardware, allowing software components to interact with each other through well-
 ## Pre-requisites
 
 * Fundamental knowledge of FAL.
-* Understanding of the session management in the measurement plug-in.
+* Understanding of the session management in the measurement plug-ins.
 * Intermediate working experience in Python.
 
 ## Steps to implement FAL for another instrument function
@@ -36,7 +36,7 @@ hardware, allowing software components to interact with each other through well-
 
 ``` bash
 
-   <fal>
+   <fal_root_directory>
    ├── __init__.py
    ├── session_helper.py
    ├── initialize_session.py
@@ -82,7 +82,7 @@ Example:
 
 ```
 
-## NOTE
+## Note
 
 1. Directory names for different NI instrument types.
 

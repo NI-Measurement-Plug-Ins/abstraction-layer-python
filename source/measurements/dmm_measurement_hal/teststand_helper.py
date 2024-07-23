@@ -1,8 +1,8 @@
-"""Functions to set up and tear down sessions of NI-DMM devices in NI TestStand."""
+"""Functions to set up and tear down sessions of DMM devices in NI TestStand."""
 
 from typing import Any
 
-import dmm_hal.dmm as dmm
+from dmm_hal import dmm
 from _helpers import TestStandSupport
 from ni_measurement_plugin_sdk_service.discovery import DiscoveryClient
 from ni_measurement_plugin_sdk_service.grpc.channelpool import GrpcChannelPool

@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "displayName": "Source Measure DC Voltage (Py)",
+      "displayName": "Source Measure DC Voltage FAL (Py)",
       "serviceClass": "ni.examples.SourceMeasureDCVoltageFAL_Python",
       "descriptionUrl": "",
       "providedInterfaces": [

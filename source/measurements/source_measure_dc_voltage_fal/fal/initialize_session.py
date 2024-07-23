@@ -24,5 +24,5 @@ class InitializeSession(ABC):
         options: Optional[Dict[str, Any]],
         initialization_behavior: SessionInitializationBehavior,
     ) -> Generator[None, None, None]:
-        """Initializes an instrument session."""
+        """Initialize an instrument session."""
         pass
