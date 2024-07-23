@@ -15,5 +15,5 @@ class SourceDCVoltage(ABC):
         current_limit: float,
         source_delay: float,
     ) -> None:
-        """Sources a DC voltage."""
+        """Source a DC voltage."""
         pass

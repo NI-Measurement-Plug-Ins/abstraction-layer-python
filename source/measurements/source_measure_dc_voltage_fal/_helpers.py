@@ -9,7 +9,7 @@ import click
 
 class TestStandSupport(object):
     """Class that communicates with TestStand."""
-    
+
     _PIN_MAP_ID_VAR = "NI.MeasurementPlugIns.PinMapId"
 
     def __init__(self, sequence_context: Any) -> None:

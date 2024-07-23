@@ -1,4 +1,4 @@
-"""Functions to set up and tear down sessions of NI-instrument devices in NI TestStand."""
+"""Functions to set up and tear down sessions of instrument devices in NI TestStand."""
 
 from typing import Any
 

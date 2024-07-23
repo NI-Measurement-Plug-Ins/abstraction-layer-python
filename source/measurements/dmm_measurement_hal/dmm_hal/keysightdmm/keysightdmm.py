@@ -61,7 +61,7 @@ class Session(DmmBase):
         range: float,
         resolution_digits: float,
     ) -> None:
-        """Configures the common properties of the measurement.
+        """Configure the common properties of the measurement.
 
         Args:
             measurement_function: DMM Measurement Types.

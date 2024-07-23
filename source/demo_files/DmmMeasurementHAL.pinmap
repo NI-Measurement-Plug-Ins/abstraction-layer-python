@@ -10,7 +10,7 @@
 		</Instrument>
 	</Instruments>
 	<Pins>
-		<DUTPin name="NI_DMM_PIN" />
+		<DUTPin name="NI_DMM_Pin" />
 		<DUTPin name="Keysight_DMM_Pin" />
 		<DUTPin name="Sim_Keysight_DMM_Pin" />
 	</Pins>
@@ -19,7 +19,7 @@
 		<Site siteNumber="0" />
 	</Sites>
 	<Connections>
-		<Connection pin="NI_DMM_PIN" siteNumber="0" instrument="NI-DMM" channel="0" />
+		<Connection pin="NI_DMM_Pin" siteNumber="0" instrument="NI-DMM" channel="0" />
 		<Connection pin="Keysight_DMM_Pin" siteNumber="0" instrument="VISA-DMM" channel="0" />
 		<Connection pin="Sim_Keysight_DMM_Pin" siteNumber="0" instrument="GPIB0::3::INSTR" channel="0" />
 	</Connections>

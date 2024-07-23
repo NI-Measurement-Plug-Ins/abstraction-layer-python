@@ -74,12 +74,14 @@ class Session(InitializeSession, SourceDCVoltage, MeasureDCVoltage):
             voltage_level_range: The range defines the valid values to which the voltage level can
                 be set.
 
-            voltage_level: The voltage level to source.
+            voltage_level: Specifies the voltage level, in volts, that the device attempts to
+                generate on the specified channel(s).
 
             current_limit_range: The range defines the valid values to which the current limit can
                 be set.
 
-            current_limit: The current limit to set.
+            current_limit: Specifies the current limit, in amps, that the output cannot exceed when
+                generating the desired voltage level on the specified channel(s).
 
             source_delay: Determines when, in seconds, the device generates the Source Complete
                 event.
@@ -123,20 +125,7 @@ class Session(InitializeSession, SourceDCVoltage, MeasureDCVoltage):
         event_id: nidcpower.Event,
         timeout: float,
     ) -> None:
-        """Wait for a NI-DCPower event or until error/cancellation occurs.
-
-        Args:
-            channels: Channels used for driver initialization and measurement methods.
-
-            cancellation_event: Event that signals the cancellation of the measurement.
-
-            event_id: The event to wait for.
-
-            timeout: The maximum time to wait for the event.
-
-        Raises:
-            TimeoutError: The error is thrown if the user timeout expires.
-        """
+        """Wait for a NI-DCPower event or until error/cancellation occurs."""
         grpc_deadline = time.time() + self._measurement_context.time_remaining
         user_deadline = time.time() + timeout
 

@@ -1,4 +1,4 @@
-"""Initialize an instrument session."""
+"""Defines the session initialization functions."""
 
 import contextlib
 import importlib
@@ -34,7 +34,7 @@ def initialize(
     options: Optional[Dict[str, Any]] = None,
     initialization_behavior: SessionInitializationBehavior = SessionInitializationBehavior.AUTO,
 ) -> Generator[Dict[str, Any], None, None]:
-    """Initializes the instrument session(s) connected to the pin(s).
+    """Initialize the instrument session(s).
 
     Args:
         measurement_context: Proxy for the Measurement Service's context-local state.
@@ -94,7 +94,7 @@ def create_instrument_sessions(
             session or attach to an existing session.
 
     Yields:
-        List of session information.
+        A List of session information.
     """
     measurement_context = MeasurementContext()
     with session_management_client.reserve_sessions(pin_map_context) as reservation:
@@ -118,7 +118,7 @@ def destroy_instrument_sessions(
 
     Args:
         session_management_client: Client for accessing the measurement plug-in session management
-            service. 
+            service.
 
         reset_device: Specifies whether to reset channel(s) during the initialization procedure.
 
@@ -129,7 +129,7 @@ def destroy_instrument_sessions(
             session or attach to an existing session.
 
     Yields:
-        List of session information.
+        A List of session information.
     """
     measurement_context = MeasurementContext()
     with session_management_client.reserve_all_registered_sessions() as reservation:
