@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "dmm_measurement_hal"
+version = "0.1.0"
+package-mode = false
+description = "Measurement plug-in example to perform a measurement using an DMM."
+authors = ["National Instruments"]
+readme = "README.md"
+
+[tool.black]
+line-length = 100
+
+[tool.poetry.dependencies]
+python = "^3.9"
+PyVISA = "^1.13.0"
+PyVISA-sim = "^0.5.1"
+nidmm = { version = "^1.4.4", extras = ["grpc"] }
+ni-measurement-plugin-sdk-service = {version = "^2.0.0"}
+click = "^8.1.7"
+grpcio = "*"
+python-decouple = "^3.6"
+
+[tool.poetry.group.dev.dependencies]
+ni-python-styleguide = "^0.4.1"
+mypy = "^1.0"
+grpc-stubs = "^1.53"
+# Uncomment to use prerelease dependencies.
+# nidmm = { git = "https://github.com/ni/nimi-python.git", subdirectory = "generated/nidmm", extras = ["grpc"] }
+# ni-measurement-plugin-sdk-service = {git = "https://github.com/ni/measurement-plugin-python.git", subdirectory = "packages/service"} 
+
+[build-system]
+requires = ["poetry-core^1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+  # https://github.com/HBNetwork/python-decouple/issues/122 - Add support for type stubs
+  "decouple.*",
+  "nidmm.*",
+]
+ignore_missing_imports = true
