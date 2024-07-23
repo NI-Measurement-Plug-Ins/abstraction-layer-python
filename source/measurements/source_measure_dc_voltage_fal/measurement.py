@@ -47,7 +47,6 @@ def measure(
     measure_pin: str,
 ) -> Tuple[float]:
     """Source DC voltage using NI SMU and measure the same using an NI SMU or DMM."""
-    
     logging.info(
         """Starting measurement: pin_names=%s voltage_level=%g voltage_level_range=%g
         current_limit=%g current_limit_range=%g source_delay=%g resolution_digits=%g""",

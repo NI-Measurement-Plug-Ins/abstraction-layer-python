@@ -118,7 +118,7 @@ def destroy_instrument_sessions(
 
     Args:
         session_management_client: Client for accessing the measurement plug-in session management
-            service. 
+            service.
 
         reset_device: Specifies whether to reset channel(s) during the initialization procedure.
 

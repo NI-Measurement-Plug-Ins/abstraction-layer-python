@@ -2,8 +2,8 @@
 
 from typing import Any
 
-from dmm_hal import dmm
 from _helpers import TestStandSupport
+from dmm_hal import dmm
 from ni_measurement_plugin_sdk_service.discovery import DiscoveryClient
 from ni_measurement_plugin_sdk_service.grpc.channelpool import GrpcChannelPool
 from ni_measurement_plugin_sdk_service.session_management import (

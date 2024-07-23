@@ -38,7 +38,6 @@ def measure(
     resolution_digits: float,
 ) -> Tuple[float]:
     """Perform a measurement using an DMM."""
-    
     logging.info(
         "Starting measurement: pin_name=%s measurement_type=%s range=%g resolution_digits=%g",
         pin_name,

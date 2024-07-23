@@ -75,13 +75,13 @@ class Session(InitializeSession, SourceDCVoltage, MeasureDCVoltage):
                 be set.
 
             voltage_level: Specifies the voltage level, in volts, that the device attempts to
-                generate on the specified channel(s). 
+                generate on the specified channel(s).
 
             current_limit_range: The range defines the valid values to which the current limit can
                 be set.
 
             current_limit: Specifies the current limit, in amps, that the output cannot exceed when
-                generating the desired voltage level on the specified channel(s). 
+                generating the desired voltage level on the specified channel(s).
 
             source_delay: Determines when, in seconds, the device generates the Source Complete
                 event.
@@ -126,7 +126,6 @@ class Session(InitializeSession, SourceDCVoltage, MeasureDCVoltage):
         timeout: float,
     ) -> None:
         """Wait for a NI-DCPower event or until error/cancellation occurs."""
-        
         grpc_deadline = time.time() + self._measurement_context.time_remaining
         user_deadline = time.time() + timeout
 
