@@ -1,4 +1,4 @@
-# Abstraction through HAL and FAL in python
+# Abstraction Layer in Measurement Plug-In for Python
 
 This repository contains examples of Hardware and Functional abstraction layer in python.
 
