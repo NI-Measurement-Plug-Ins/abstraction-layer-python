@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "source_measure_dc_voltage_fal"
+version = "1.0.0"
+package-mode = false
+description = "Measurement plug-in example to source DC voltage using NI SMU and measure the same using an NI SMU or DMM."
+authors = ["National Instruments"]
+readme = "README.md"
+
+[tool.black]
+line-length = 100
+
+[tool.poetry.dependencies]
+python = "^3.9"
+PyVISA = "^1.13.0"
+PyVISA-sim = "^0.5.1"
+nidmm = { version = "^1.4.4", extras = ["grpc"] }
+nidcpower = { version = "^1.4.4", extras = ["grpc"] }
+ni-measurement-plugin-sdk-service = {version = "^2.0.0"}
+click = "^8.1.7"
+grpcio = "*"
+python-decouple = "^3.6"
+
+[tool.poetry.group.dev.dependencies]
+ni-python-styleguide = "^0.4.1"
+mypy = "^1.0"
+grpc-stubs = "^1.53"
+# Uncomment to use prerelease dependencies.
+# nidmm = { git = "https://github.com/ni/nimi-python.git", subdirectory = "generated/nidmm", extras = ["grpc"] } 
+# nidcpower = { git = "https://github.com/ni/nimi-python.git", subdirectory = "generated/nidcpower", extras = ["grpc"] }
+# ni-measurement-plugin-sdk-service = {git = "https://github.com/ni/measurement-plugin-python.git", subdirectory = "packages/service"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+  # https://github.com/HBNetwork/python-decouple/issues/122 - Add support for type stubs
+  "decouple.*",
+  "nidmm.*",
+  "nidcpower.*",
+  "hightime.*",
+]
+ignore_missing_imports = true

@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "displayName": "Source Measure DC Voltage FAL (Py)",
+      "serviceClass": "ni.examples.SourceMeasureDCVoltageFAL_Python",
+      "descriptionUrl": "",
+      "providedInterfaces": [
+        "ni.measurementlink.measurement.v1.MeasurementService",
+        "ni.measurementlink.measurement.v2.MeasurementService"
+      ],
+      "path": "start.bat",
+      "annotations": {
+        "ni/service.description": "Source DC voltage using NI SMU and measure the same using an NI SMU or DMM.",
+        "ni/service.collection": "NI.Examples",
+        "ni/service.tags": []
+      }
+    }
+  ]
+}
