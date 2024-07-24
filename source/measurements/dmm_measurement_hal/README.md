@@ -18,7 +18,7 @@ Abstraction Layer (HAL).
 
 ## Files Overview
 
-- The below files are generated using `ni-measurement-plugin-sdk-generator`
+- The below files are generated using `ni-measurement-plugin-generator`
   - _helpers.py
   - DmmMeasurementHAL.measproj
   - DmmMeasurementHAL.measui
