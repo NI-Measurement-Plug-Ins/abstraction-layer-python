@@ -1,21 +1,19 @@
 # Abstraction Layer in Measurement Plug-In for Python
 
-This repository contains the workflow and measurement plug-in examples showcasing how to implement
-Hardware Abstraction Layer (HAL) and Functional Abstraction Layer (FAL).
-
-## Table of Contents
-
 - [Abstraction Layer in Measurement Plug-In for Python](#abstraction-layer-in-measurement-plug-in-for-python)
-  - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
-    - [HAL](#hardware-abstraction-layer)
-    - [FAL](#functional-abstraction-layer)
-  - [Software Dependencies](#software-dependencies)
+    - [Hardware Abstraction Layer](#hardware-abstraction-layer)
+    - [Functional Abstraction Layer](#functional-abstraction-layer)
+  - [Software and Package Dependencies](#software-and-package-dependencies)
   - [Hardware Dependencies](#hardware-dependencies)
   - [Getting Started](#getting-started)
   - [Build and Publish NI Packages](#build-and-publish-ni-packages)
+    - [Create and Update NI Package Manager Feeds](#create-and-update-ni-package-manager-feeds)
 
 ## Overview
+
+This repository contains the workflow and measurement plug-in examples showcasing how to implement
+Hardware Abstraction Layer (HAL) and Functional Abstraction Layer (FAL).
 
 ### Hardware Abstraction Layer
 
@@ -29,8 +27,10 @@ The Functional Abstraction Layer (FAL) is a higher-level abstraction layer that 
 functional view of the system. It focuses on abstracting the functionality rather than the
 hardware, allowing software components to interact with each other through well-defined interfaces.
 
-## Software Dependencies
+## Software and Package Dependencies
 
+- Python 3.9 or later
+- Poetry 1.8.2 or later
 - InstrumentStudio Professional 2024 Q3 or later
 - NI-DCPower 2024 Q2 or later
 - NI-DMM 2023 Q1 or later
@@ -48,15 +48,15 @@ Supported instrument models:
 
 ## Getting Started
 
-- You can refer to the [HAL in Measurement Plug-in](./docs/Hal_in_measurement_plugin.md) to
+- Refer to the [HAL in Measurement Plug-in](./docs/HAL%20in%20Measurement%20Plug-In.md) to
   understand the workflow for implementing HAL for measurement plug-ins.
-- You can refer to the [FAL in Measurement Plug-in](./docs/Fal_in_measurement_plugin.md) to
+- Refer to the [FAL in Measurement Plug-in](./docs/FAL%20in%20Measurement%20Plug-In.md) to
   understand the workflow for implementing FAL for measurement plug-ins.
 
 ## Build and Publish NI Packages
 
-- An internal tool, known as `NI MEASUREMENT PLUGIN PACKAGE BUILDER`, was utilized for the
-  construction of the packages.
+- An internal tool, [NI Measurement Plug-in Package builder](https://github.com/ni/ni-measurement-plugin-package-builder/releases/tag/v1.3.0-dev3)
+  was used to build the packages.
 
 ### Create and Update NI Package Manager Feeds
 
