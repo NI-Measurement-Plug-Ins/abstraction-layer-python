@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="A13A591501D4344984514BB72FBEEFFE6D5A50D9600CAAEE465D0CFB8BBEDD7E35630334541EEF08DE192776C7EDD6991B437C9E7E16783AC4F8EFAA5DBDDE8E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="719D7D33DBFA374F4408F7DFE64737EA211C5F03C89EE64DE64A001AA6CEE393A1EB48E62099CFA6910D2764AA7F492814751C0D05568EA9AB88C4722263C830" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="24.5.0.50111" FeatureSetName="Pin Map" Name="http://www.ni.com/InstrumentFramework/PinMap" OldestCompatibleVersion="21.3.0.0" Version="21.3.0.0" />
 		<ParsableNamespace AssemblyFileVersion="24.5.0.50111" FeatureSetName="InstrumentStudio Measurement UI" Name="http://www.ni.com/InstrumentFramework/ScreenDocument" OldestCompatibleVersion="22.1.0.1" Version="22.1.0.1" />
@@ -30,7 +30,7 @@
 		<NameScopingEnvoy Id="8a1540a79f81438a8407889bf4817e48" ModelDefinitionType="DefaultTarget" Name="DefaultTarget">
 			<DefaultTarget />
 			<SourceFileReference Id="f217bca242d14930a857440b02ee6504" ModelDefinitionType="{http://www.ni.com/InstrumentFramework/ScreenDocument}Screen" Name="SourceMeasureDCVoltageFAL.measui" StoragePath="SourceMeasureDCVoltageFAL.measui" />
-			<FileReference Id="de88a582d32a460298f8a35d98c878c8" ModelDefinitionType="{http://www.ni.com/InstrumentFramework/PinMap}PinMapDefinition" Name="SourceMeasureDCVoltageFAL.pinmap" StoragePath="..\..\demo_files\SourceMeasureDCVoltageFAL.pinmap" p4:IsActive="True" xmlns:p4="http://www.ni.com/InstrumentFramework/PinMap" />
+			<FileReference Id="699e7d157db34d54a74129b51a4e91fd" ModelDefinitionType="{http://www.ni.com/InstrumentFramework/PinMap}PinMapDefinition" Name="SourceMeasureDCVoltageFAL.pinmap" StoragePath="..\..\demo_files\SourceMeasureDCVoltageFAL.pinmap" p4:IsActive="True" xmlns:p4="http://www.ni.com/InstrumentFramework/PinMap" />
 		</NameScopingEnvoy>
 	</Project>
 	<ProjectInformation xmlns="http://www.ni.com/PlatformFramework" />
