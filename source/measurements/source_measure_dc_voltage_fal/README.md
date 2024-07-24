@@ -18,7 +18,7 @@ instruments with the Functional Abstraction Layer (FAL).
 
 ## Files Overview
 
-- The below files are generated using `ni-measurement-plugin-sdk-generator`
+- The below files are generated using `ni-measurement-plugin-generator`
   - _helpers.py
   - SourceMeasureDCVoltageFAL.measproj
   - SourceMeasureDCVoltageFAL.measui
