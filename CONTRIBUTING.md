@@ -25,15 +25,15 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 - (Optional) Install [Visual Studio Code](https://code.visualstudio.com/download).
 - Install Git.
-- Install [Poetry](https://python-poetry.org/docs/#installation). For the recommended Python version,
-  see [Dependencies](README.md#software-and-package-dependencies).
+- Install [Poetry](https://python-poetry.org/docs/#installation). For the recommended Poetry version,
+  see [Software and Package Dependencies](README.md#software-and-package-dependencies).
 - Install Python and add it to the `PATH`. For the recommended Python version, see
-  [Dependencies](README.md#software-and-package-dependencies).
+  [Software and Package Dependencies](README.md#software-and-package-dependencies).
 
 ## Clone Repo
 
-Clone the repo, this will pull the `Abstraction Layer in Measurement Plug-In` for Python components
-and related components.
+Clone the repo, this will pull the workflow documentation to create the Abstraction Layer in
+Measurement Plug-In for Python measurements and related examples.
 
 ```cmd
 git clone https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python.git
