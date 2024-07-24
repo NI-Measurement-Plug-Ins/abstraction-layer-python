@@ -21,14 +21,47 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 # Getting Started
 
-This repository contains the workflow and measurement plug-in examples showcasing how to implement
-Hardware Abstraction Layer (HAL) and Functional Abstraction Layer (FAL).
+## Prerequisites
 
-- TODO: include build steps here.
+- (Optional) Install [Visual Studio Code](https://code.visualstudio.com/download).
+- Install Git.
+- Install [Poetry](https://python-poetry.org/docs/#installation). For the recommended Poetry version,
+  see [Software and Package Dependencies](README.md#software-and-package-dependencies).
+- Install Python and add it to the `PATH`. For the recommended Python version, see
+  [Software and Package Dependencies](README.md#software-and-package-dependencies).
 
-# Testing
+## Clone Repo
 
-- TODO: include testing steps here.
+Clone the repo, this will pull the workflow documentation to create the Abstraction Layer in
+Measurement Plug-In for Python measurements and related examples.
+
+```cmd
+git clone https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python.git
+```
+
+## HAL and FAL Implementation workflow
+
+- Refer to the [HAL in Measurement Plug-in](./docs/HAL%20in%20Measurement%20Plug-In.md) to
+  understand the workflow for implementing HAL for measurement plug-ins.
+- Refer to the [FAL in Measurement Plug-in](./docs/FAL%20in%20Measurement%20Plug-In.md) to
+  understand the workflow for implementing FAL for measurement plug-ins.
+
+# Adding dependencies
+
+Add dependency package for the example measurement plug-in using the [`poetry
+add`](https://python-poetry.org/docs/cli/#add) command.
+
+```cmd
+poetry add <name_of_dependency>:<version>
+```
+
+# Lint Code
+
+To check the code and update it for formatting errors
+
+```cmd
+poetry run ni-python-styleguide fix
+```
 
 # Developer Certificate of Origin (DCO)
 
