@@ -32,7 +32,8 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 ## Clone Repo
 
-Clone the repo, this will pull the Measurement Plug-In SDK for Python components and related components.
+Clone the repo, this will pull the `Abstraction Layer in Measurement Plug-In` for Python components
+and related components.
 
 ```cmd
 git clone https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python.git
