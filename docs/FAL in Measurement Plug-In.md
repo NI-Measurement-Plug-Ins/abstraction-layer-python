@@ -1,14 +1,24 @@
 # Creating a FAL for Use in Measurement Plug-ins
 
+- [Creating a FAL for Use in Measurement Plug-ins](#creating-a-fal-for-use-in-measurement-plug-ins)
+  - [What is FAL?](#what-is-fal)
+  - [Pre-requisites](#pre-requisites)
+  - [Steps to implement FAL for another instrument function](#steps-to-implement-fal-for-another-instrument-function)
+  - [Directory structure of FAL](#directory-structure-of-fal)
+  - [Steps to migrate FAL implementations from other frameworks](#steps-to-migrate-fal-implementations-from-other-frameworks)
+  - [Note](#note)
+
+## What is FAL?
+
 The Functional Abstraction Layer (FAL) is a higher-level abstraction layer that provides a more
 functional view of the system. It focuses on abstracting the functionality rather than the
 hardware, allowing software components to interact with each other through well-defined interfaces.
 
 ## Pre-requisites
 
-* Fundamental knowledge of FAL.
-* Understanding of the session management in the measurement plug-ins.
-* Intermediate working experience in Python.
+- Fundamental knowledge of FAL.
+- Understanding of the session management in the measurement plug-ins.
+- Intermediate working experience in Python.
 
 ## Steps to implement FAL for another instrument function
 
@@ -82,6 +92,12 @@ Example:
 
 ```
 
+## Steps to migrate FAL implementations from other frameworks
+
+- Create a measurement plug-in by following the steps mentioned in
+  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start).
+- Copy the existing FAL classes and modules by following the steps from [Steps to create a new FAL based measurement](#steps-to-implement-fal-for-another-instrument-function) to migrate the existing FAL implementation.
+  
 ## Note
 
 1. Directory names for different NI instrument types.

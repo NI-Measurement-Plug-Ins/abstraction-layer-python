@@ -1,4 +1,16 @@
-# DMM Measurement
+# DMM Measurement HAL
+
+- [DMM Measurement HAL](#dmm-measurement-hal)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Files Overview](#files-overview)
+  - [Required Software](#required-software)
+  - [Required Hardware](#required-hardware)
+  - [To use a physical instrument](#to-use-a-physical-instrument)
+  - [To simulate NI-DMM and Keysight DMM Using PyVISA-sim](#to-simulate-ni-dmm-and-keysight-dmm-using-pyvisa-sim)
+  - [Note](#note)
+
+## Overview
 
 This is a measurement plug-in example that performs a measurement using a DMM with Hardware
 Abstraction Layer (HAL).
@@ -93,9 +105,9 @@ follow the steps below:
   simulated instrument.
 - Select `Sim_Keysight_DMM_Pin` pin to use the simulated Keysight 34401A DMM.
 
-## NOTE
+## Note
 
-- - The `.\demo_files\DmmMeasurementHAL.pinmap` for this measurement includes two custom DMM instruments:
+- The `.\demo_files\DmmMeasurementHAL.pinmap` for this measurement includes two custom DMM instruments:
   `GPIB0::3::INSTR (simulated)` and `VISA-DMM (physical)`, both identified with the instrument
   type ID `KeysightDmm`. Currently, the `create_dmm_sessions` and `destroy_dmm_sessions methods`
   only support initializing a single session of a specific instrument type ID. Therefore, before
