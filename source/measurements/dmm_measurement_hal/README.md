@@ -1,7 +1,7 @@
-# Dmm Measurement using Python HAL
+# DMM Measurement HAL
 
-- [Dmm Measurement using Python HAL](#dmm-measurement-using-python-hal)
-  - [Dmm Measurement](#dmm-measurement)
+- [DMM Measurement HAL](#dmm-measurement-hal)
+  - [Overview](#overview)
   - [Features](#features)
   - [Files Overview](#files-overview)
   - [Required Software](#required-software)
@@ -10,7 +10,7 @@
   - [To simulate NI-DMM and Keysight DMM Using PyVISA-sim](#to-simulate-ni-dmm-and-keysight-dmm-using-pyvisa-sim)
   - [Note](#note)
 
-## Dmm Measurement
+## Overview
 
 This is a measurement plug-in example that performs a measurement using a DMM with Hardware
 Abstraction Layer (HAL).

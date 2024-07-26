@@ -1,7 +1,7 @@
-# FAL in Measurement Plug-in Python
+# Source Measure DC Voltage FAL
 
-- [FAL in Measurement Plug-in Python](#fal-in-measurement-plug-in-python)
-  - [Source Measure DC Voltage Measurement](#source-measure-dc-voltage-measurement)
+- [Source Measure DC Voltage FAL](#source-measure-dc-voltage-fal)
+  - [Overview](#overview)
   - [Features](#features)
   - [Files Overview](#files-overview)
   - [Required Software](#required-software)
@@ -10,7 +10,7 @@
   - [To simulate NI-DCPower, NI-DMM and Keysight DMM Using PyVISA-sim](#to-simulate-ni-dcpower-ni-dmm-and-keysight-dmm-using-pyvisa-sim)
   - [Note](#note)
 
-## Source Measure DC Voltage Measurement
+## Overview
 
 This is a measurement plug-in example that sources and measures a DC voltage using a mix of
 instruments with the Functional Abstraction Layer (FAL).
