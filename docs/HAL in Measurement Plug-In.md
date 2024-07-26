@@ -1,14 +1,24 @@
 # Creating a HAL for Use in Measurement Plug-ins
 
+- [Creating a HAL for Use in Measurement Plug-ins](#creating-a-hal-for-use-in-measurement-plug-ins)
+  - [What is HAL](#what-is-hal)
+  - [Pre-requisites](#pre-requisites)
+  - [Steps to implement HAL for a new instrument type](#steps-to-implement-hal-for-a-new-instrument-type)
+  - [Directory structure of HAL](#directory-structure-of-hal)
+  - [Migrate the existing instrument class to Measurement Plug-In](#migrate-the-existing-instrument-class-to-measurement-plug-in)
+  - [Note](#note)
+
+## What is HAL
+
 Hardware Abstraction Layer (HAL) enables users to develop applications agnostic of instrument models
 of a type (like DMM). HAL in measurement plug-ins allows users to work with various instrument
 models without modifying the implementation. This HAL implementation leverages pins from the pin map.
 
 ## Pre-requisites
 
-* Fundamental knowledge of HAL.
-* Understanding of the session management in the measurement plug-ins.
-* Intermediate working experience in Python.
+- Fundamental knowledge of HAL.
+- Understanding of the session management in the measurement plug-ins.
+- Intermediate working experience in Python.
 
 ## Steps to implement HAL for a new instrument type
 
@@ -67,6 +77,14 @@ dmm_hal
        └── _visa_grpc.py
 
 ```
+
+## Migrate the existing instrument class to Measurement Plug-In
+
+- Create a measurement plug-in by following the steps mentioned in
+  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start).
+- Copy the existing instrument classes to the project and follow the steps from
+  [Steps to create a new HAL based measurement](#steps-to-implement-hal-for-a-new-instrument-type) section
+  for migrating the existing instrument classes to measurement plug-in.
 
 ## Note
 

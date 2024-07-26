@@ -1,4 +1,16 @@
-# Source Measure DC Voltage Measurement
+# FAL in Measurement Plug-in Python
+
+- [FAL in Measurement Plug-in Python](#fal-in-measurement-plug-in-python)
+  - [Source Measure DC Voltage Measurement](#source-measure-dc-voltage-measurement)
+  - [Features](#features)
+  - [Files Overview](#files-overview)
+  - [Required Software](#required-software)
+  - [Required Hardware](#required-hardware)
+  - [To use a physical instrument](#to-use-a-physical-instrument)
+  - [To simulate NI-DCPower, NI-DMM and Keysight DMM Using PyVISA-sim](#to-simulate-ni-dcpower-ni-dmm-and-keysight-dmm-using-pyvisa-sim)
+  - [Note](#note)
+
+## Source Measure DC Voltage Measurement
 
 This is a measurement plug-in example that sources and measures a DC voltage using a mix of
 instruments with the Functional Abstraction Layer (FAL).
@@ -103,7 +115,7 @@ follow the steps below:
   behavior of the simulated instrument.
 - Select `Sim_Keysight_DMM_Pin` pin to use the simulated Keysight 34401A DMM.
 
-## NOTE
+## Note
 
 - The `.\demo_files\SourceMeasureDCVoltageFAL.pinmap` for this measurement includes one DC-Power
   instrument and two custom DMM instruments: `GPIB0::3::INSTR (simulated)` and `VISA-DMM(physical)`,
