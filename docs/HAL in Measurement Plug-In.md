@@ -80,7 +80,7 @@ dmm_hal
 ## Migrate the existing instrument class to Measurement Plug-In
 
 - Create a measurement plug-in by following the steps mentioned in
-  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start).
+  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing HAL classes and modules by following the steps from [Steps to create a new HAL based measurement](#steps-to-implement-hal-for-a-new-instrument-type) to migrate the existing HAL implementation.
 - Update the `measurement.py` with the HAL modules and run the measurement.
 ![Measurement Plug-in Workflow](Measurement%20with%20HAL%20workflow.png)
@@ -99,6 +99,4 @@ dmm_hal
    NI-DAQmx | nidaqmx
    NI-SWITCH | nirelaydriver
 
-> The instrument type id for custom instruments should be a single word, adhering to Python standards.
-   Accordingly, the directories for the instrument models should also be in lowercase. Example:
-   [`keysightdmm`](../source/measurements/dmm_measurement_hal/dmm_hal/keysightdmm/keysightdmm.py).
+> The instrument type id for custom instruments should be a single word, adhering to Python standards. Accordingly, the directories for the instrument models should also be in lowercase. Example: [`keysightdmm`](../source/measurements/dmm_measurement_hal/dmm_hal/keysightdmm/keysightdmm.py).

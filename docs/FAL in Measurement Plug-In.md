@@ -21,8 +21,7 @@ hardware, allowing software components to interact with each other through well-
 
 ## Steps to implement FAL for another instrument function
 
-1. To implement FAL for a specific instrument type, create a directory to hold the modules related
-   to the FAL implementation.
+1. To implement FAL for a specific instrument type, create a directory to hold the modules related to the FAL implementation.
 2. Create a Python file with a generic name that does not specify the type of instrument.
    Example: session_helper.py.
 3. This module contains an initialize method which will reserve and initialize the respective
@@ -95,9 +94,9 @@ Example:
 ## Migrate the existing instrument class to Measurement Plug-In
 
 - Create a measurement plug-in by following the steps mentioned in
-  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start).
+  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing FAL classes and modules by following the steps from [Steps to create a new FAL based measurement](#steps-to-implement-fal-for-another-instrument-function) to migrate the existing FAL implementation.
-- Update the `measurement.py` with the HAL modules and run the measurement.
+- Update the `measurement.py` with the FAL modules and run the measurement.
 ![Measurement Plug-in Workflow](Measurement%20with%20FAL%20workflow.png)
 
 > [!Note]
@@ -114,6 +113,4 @@ Example:
    NI-DAQmx | nidaqmx
    NI-SWITCH | nirelaydriver
 
-> The instrument type id for custom instruments should be a single word, adhering to Python standards.
-   Accordingly, the directories for the instrument models should also be in lowercase. Example:
-   [`keysightdmm`](../source/measurements/source_measure_dc_voltage_fal/fal/keysightdmm/keysightdmm.py).
+> The instrument type id for custom instruments should be a single word, adhering to Python standards. Accordingly, the directories for the instrument models should also be in lowercase. Example: [`keysightdmm`](../source/measurements/source_measure_dc_voltage_fal/fal/keysightdmm/keysightdmm.py).
