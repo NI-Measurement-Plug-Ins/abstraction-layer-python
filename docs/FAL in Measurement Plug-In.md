@@ -16,9 +16,9 @@ hardware, allowing software components to interact with each other through well-
 
 ## Pre-requisites
 
-- Fundamentals of FAL.
-- Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins.
 - Intermediate-level expertise in Python.
+- Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins.
+- Fundamentals of FAL.
 
 ## Steps to implement FAL for another instrument function
 

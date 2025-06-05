@@ -16,9 +16,9 @@ models without modifying the implementation. This HAL implementation leverages p
 
 ## Pre-requisites
 
-- Fundamentals of HAL.
-- Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins.
 - Intermediate-level expertise in Python.
+- Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins.
+- Fundamentals of HAL.
 
 ## Steps to implement HAL for a new instrument type
 
