@@ -6,6 +6,7 @@
   - [Steps to implement FAL for another instrument function](#steps-to-implement-fal-for-another-instrument-function)
   - [Directory structure of FAL](#directory-structure-of-fal)
   - [Migrate the existing instrument class to Measurement Plug-In](#migrate-the-existing-instrument-class-to-measurement-plug-in)
+  - [Note](#note)
 
 ## What is FAL?
 
@@ -15,9 +16,9 @@ hardware, allowing software components to interact with each other through well-
 
 ## Pre-requisites
 
-- Fundamental knowledge of FAL.
+- Fundamentals of FAL.
 - Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins.
-- Intermediate working experience in Python.
+- Intermediate-level expertise in Python.
 
 ## Steps to implement FAL for another instrument function
 
@@ -99,9 +100,9 @@ Example:
 - Update the `measurement.py` with the FAL modules and run the measurement.
 ![Measurement Plug-in Workflow](Measurement%20with%20FAL%20workflow.png)
 
-> [!Note]
+## Note
 
-> Directory names for different NI instrument types.
+1. Directory names for different NI instrument types.
 
    Instrument type | Directory name
    --- | ---
@@ -113,4 +114,6 @@ Example:
    NI-DAQmx | nidaqmx
    NI-SWITCH | nirelaydriver
 
-> The instrument type id for custom instruments should be a single word, adhering to Python standards. Accordingly, the directories for the instrument models should also be in lowercase. Example: [`keysightdmm`](../source/measurements/source_measure_dc_voltage_fal/fal/keysightdmm/keysightdmm.py).
+2. The instrument type id for custom instruments should be a single word, adhering to Python standards.
+   Accordingly, the directories for the instrument models should also be in lowercase. Example:
+   [`keysightdmm`](../source/measurements/source_measure_dc_voltage_fal/fal/keysightdmm/keysightdmm.py).
