@@ -32,7 +32,6 @@ models without modifying the implementation. This HAL implementation leverages p
 5. Each of these directories must have a module with the same name as the directory. The module
    must have a `Session` class which inherits and implements the methods from the abstract class
    created in the root directory.
-![HAL Implementation](HAL%20Implementation.png)
 
 ## Directory structure of HAL
 
