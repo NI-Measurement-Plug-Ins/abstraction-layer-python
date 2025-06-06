@@ -27,28 +27,27 @@ models without modifying the implementation. This HAL implementation leverages p
 1. To implement HAL for a specific instrument type, create a new directory to contain all files
    related to the HAL implementation as the first step. This newly created directory will serve as
    the root directory for the HAL implementation.
-   1. Follow the recommended [directory structure for HAL](#directory-structure-of-hal) when
-      creating the directories for the implementation.
+   1. Follow the recommended [directory structure of HAL](#directory-structure-of-hal) when creating
+      directories for the implementation.
    2. Add an `__init__.py` file to this directory. This marks the directory as a Python package,
       allowing you to import the HAL modules into your measurement plug-in.
-2. In the root directory, create a python file named after the specific instrument type. Example:
+2. In the root directory, create a Python file named after the specific instrument type. Example:
    `dmm.py` for digital multimeter.
-3. In the `<instrument_type>.py` file, define an abstract base class that specifies all the required
-   methods for instruments of that type. Example: `configure_measurement_digits` and
-   `_initialize_session`.
+3. In the `<instrument_type>.py` file, define an abstract base class that declares all methods
+   required for instruments of that type. Example: `_initialize_session()`,
+   `configure_measurement_digits()` and `read()` methods for digital multimeter.
    1. Additionally, implement functions to:
       1. Reserve and initialize instrument session for the provided pin name in the measurement.
       2. [Optional] Create and destroy methods for instrument sessions that can be used in the
       TestStand fixture module.
-   2. Refer to this
-   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/dmm_measurement_hal/dmm_hal/dmm.py)
+   2. Refer to the `dmm.py` file in this HAL
+   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/dmm_measurement_hal/dmm_hal)
    for more insights.
-4. Within the root directory, create subdirectories for each instrument model.
+4. Within the root directory, create subdirectories for each instrument model that requires child
+   class implementation. Example: `nidmm` and `keysightdmm`.
    1. For naming the directory, you can refer to the table with directory names for NI and custom
       instruments in the [Note](#note) section.
-   2. Following this convention, we have named the subdirectories as `nidmm` and `keysightdmm` in
-      the above mentioned example.
-5. Each of these created subdirectories must contain a module (`.py` file) with the same name as the
+5. Each of these subdirectories must contain a module (`.py` file) with the same name as the
    directory.
    1. The module must have a `Session` class which inherits the abstract base class and implements
       its methods.
@@ -98,10 +97,10 @@ dmm_hal
 
 ## Migrate the existing instrument class to Measurement Plug-In
 
-- Create a measurement plug-in by following the steps mentioned in
-  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
+- Create a measurement plug-in by following the steps mentioned in [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing HAL classes and modules by following the steps from [Steps to create a new HAL based measurement](#steps-to-implement-hal-for-a-new-instrument-type) to migrate the existing HAL implementation.
 - Update the `measurement.py` with the HAL modules and run the measurement.
+
 ![Measurement Plug-in Workflow](<./Images/HAL/Measurement with HAL workflow.png>)
 
 ## Note

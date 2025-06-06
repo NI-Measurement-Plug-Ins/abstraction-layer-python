@@ -27,32 +27,32 @@ hardware, allowing software components to interact with each other through well-
 1. To implement FAL, create a new directory to contain all files related to the FAL implementation
    as the first step. This newly created directory will serve as the root directory for the FAL
    implementation.
-   1. Follow the recommended [directory structure for FAL](#directory-structure-of-fal) when
-      creating the directories for the implementation.
+   1. Follow the recommended [directory structure of FAL](#directory-structure-of-fal) when creating
+      directories for the implementation.
    2. Add an `__init__.py` file to this directory. This marks the directory as a Python package,
-      allowing you to import FAL modules into your measurement plug-in.
-2. In the root directory, create a python file with a generic name that does not specify the type of
-   instrument to abstract the instrument type details. Example: `session_helper.py`.
+      allowing you to import the FAL modules into your measurement plug-in.
+2. In the root directory, create a Python file with a generic name that does not specify the
+   instrument type, to abstract the instrument type details. Example: `session_helper.py`.
 3. In the `session_helper.py` file, implement initialize method that will reserve and initialize
    instrument sessions for the provided pin names in the measurement.
-   1. [Optional] Additionally implement create and destroy methods for instrument sessions that can be used in
-      the TestStand fixture module.
-   2. Refer to this
-   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/source_measure_dc_voltage_fal/fal/session_helper.py)
-   for more insights
-4. Create abstract classes for the required instrument functionalities (like source voltage, measure
-   voltage, source current, measure current etc) as separate python files in the root directory.
-   Example: `source_dc_voltage.py` and `measure_dc_voltage.py`.
-5. Within the root directory, create subdirectories for each instrument model.
-   1. For naming the subdirectory, you can refer to the table with directory names for NI and custom
+   1. [Optional] Additionally, implement create and destroy methods for instrument sessions that can
+      be used in the TestStand fixture module.
+   2. Refer to the `session_helper.py` file in this FAL
+   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/source_measure_dc_voltage_fal/fal)
+   for more insights.
+4. Create abstract classes for the required instrument functionalities (such as source voltage,
+   measure voltage, source current, measure current etc) as separate Python files in the root
+   directory. Example: `source_dc_voltage.py` and `measure_dc_voltage.py`.
+5. Within the root directory, create subdirectories for each instrument model that requires child
+   class implementation. Example: `nidcpower`, `nidmm` and `keysightdmm`.
+   1. For naming the subdirectory, refer to the table with directory names for NI and custom
    instruments in the [Note](#note) section.
-   2. Following this convention, we have named the subdirectories as `nidcpower`, `nidmm` and
-   `keysightdmm` in the above mentioned example.
-6. Each of these created subdirectories must contain a module (`.py` file) with the same name as the
+6. Each of these subdirectories must contain a module (`.py` file) with the same name as the
    directory.
    1. The module must have a `Session` class which inherits the abstract classes of the required
-      instrument functionalities and implements its methods.  
-      ![FAL Implementation](<./Images/FAL/FAL Implementation.png>)
+      instrument functionalities and implements its methods.
+
+![FAL Implementation](<./Images/FAL/FAL Implementation.png>)
 
 ## Directory structure of FAL
 
@@ -108,10 +108,10 @@ Example:
 
 ## Migrate the existing instrument class to Measurement Plug-In
 
-- Create a measurement plug-in by following the steps mentioned in
-  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
+- Create a measurement plug-in by following the steps mentioned in [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing FAL classes and modules by following the steps from [Steps to create a new FAL based measurement](#steps-to-implement-fal-for-another-instrument-function) to migrate the existing FAL implementation.
 - Update the `measurement.py` with the FAL modules and run the measurement.
+
 ![Measurement Plug-in Workflow](<./Images/FAL/Measurement with FAL workflow.png>)
 
 ## Note
