@@ -22,7 +22,7 @@ hardware, allowing software components to interact with each other through well-
 
 ## Steps to implement FAL for another instrument function
 
-![FAL Structure](<./FAL Structure.png>)
+![FAL Structure](<./Images/FAL/FAL Structure.png>)
 
 1. To implement FAL, create a new directory to contain all files related to the FAL implementation
    as the first step. This newly created directory will serve as the root directory for the FAL
@@ -52,7 +52,7 @@ hardware, allowing software components to interact with each other through well-
    directory.
    1. The module must have a `Session` class which inherits the abstract classes of the required
       instrument functionalities and implements its methods.  
-      ![FAL Implementation](FAL%20Implementation.png)
+      ![FAL Implementation](<./Images/FAL/FAL Implementation.png>)
 
 ## Directory structure of FAL
 
@@ -112,7 +112,7 @@ Example:
   [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing FAL classes and modules by following the steps from [Steps to create a new FAL based measurement](#steps-to-implement-fal-for-another-instrument-function) to migrate the existing FAL implementation.
 - Update the `measurement.py` with the FAL modules and run the measurement.
-![Measurement Plug-in Workflow](Measurement%20with%20FAL%20workflow.png)
+![Measurement Plug-in Workflow](<./Images/FAL/Measurement with FAL workflow.png>)
 
 ## Note
 

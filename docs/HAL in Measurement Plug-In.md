@@ -22,7 +22,7 @@ models without modifying the implementation. This HAL implementation leverages p
 
 ## Steps to implement HAL for a new instrument type
 
-![HAL Structure](<./HAL Structure.png>)
+![HAL Structure](<./Images/HAL/HAL Structure.png>)
 
 1. To implement HAL for a specific instrument type, create a new directory to contain all files
    related to the HAL implementation as the first step. This newly created directory will serve as
@@ -102,7 +102,7 @@ dmm_hal
   [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start) or migrate your existing measurement into measurement plug-in by following the steps mentioned in [Migrating a measurement to Plug-In](https://github.com/ni/measurement-plugin-converter-python/tree/main/src/converter).
 - Copy the existing HAL classes and modules by following the steps from [Steps to create a new HAL based measurement](#steps-to-implement-hal-for-a-new-instrument-type) to migrate the existing HAL implementation.
 - Update the `measurement.py` with the HAL modules and run the measurement.
-![Measurement Plug-in Workflow](Measurement%20with%20HAL%20workflow.png)
+![Measurement Plug-in Workflow](<./Images/HAL/Measurement with HAL workflow.png>)
 
 ## Note
 
