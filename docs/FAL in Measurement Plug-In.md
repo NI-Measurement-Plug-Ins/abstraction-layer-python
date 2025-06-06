@@ -22,23 +22,37 @@ hardware, allowing software components to interact with each other through well-
 
 ## Steps to implement FAL for another instrument function
 
-1. To implement FAL for a specific instrument type, create a directory to hold the modules related to the FAL implementation.
-2. Create a Python file with a generic name that does not specify the type of instrument.
-   Example: session_helper.py.
-3. This module contains an initialize method which will reserve and initialize the respective
-   instrument sessions. This module will additionally contain methods to initialize instrument
-   sessions in the measurement and create and destroy methods that can be used in the TestStand
-   fixture module. Refer to this [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/source_measure_dc_voltage_fal/fal/session_helper.py) for more insights
-4. Create abstract classes for each instrument functionality in separate files such as source
-   voltage, measure voltage, source current, measure current etc. Example: `source_dc_voltage` and
-   `measure_dc_voltage`.
-5. Within the root directory create directories for each instrument model. You can refer to the
-   table with directory names for NI and custom instruments in the [Note](#note) section. Following
-   this, we have named the directories as `nidcpower`, `nidmm` and `keysightdmm`.
-6. Each directory must have a module with the same name as the directory. The module
-   must have a `Session` class which inherits and implements the methods from the appropriate
-   functionality abstract classes created in the root directory.
-![FAL Implementation](FAL%20Implementation.png)
+![FAL Structure](<./FAL Structure.png>)
+
+1. To implement FAL, create a new directory to contain all files related to the FAL implementation
+   as the first step. This newly created directory will serve as the root directory for the FAL
+   implementation.
+   1. Follow the recommended [directory structure for FAL](#directory-structure-of-fal) when
+      creating the directories for the FAL implementation.
+   2. Add an `__init__.py` file to this directory. This marks the directory as a Python package,
+      allowing you to import FAL modules into your measurement plug-in.
+2. In the root directory, create a python file with a generic name that does not specify the type of
+   instrument. Example: `session_helper.py`.
+3. In the `session_helper.py` file, implement an initialize method that will reserve and initialize
+   instrument sessions for the provided pin names.
+   1. Additionally implement create and destroy methods for instrument sessions that can be used in
+      the TestStand fixture module.
+   2. Refer to this
+   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/source_measure_dc_voltage_fal/fal/session_helper.py)
+   for more insights
+4. Create abstract classes for the required instrument functionalities (like source voltage, measure
+   voltage, source current, measure current etc) as separate python files in the root directory.
+   Example: `source_dc_voltage.py` and `measure_dc_voltage.py`.
+5. Within the root directory, create subdirectories for each instrument model.
+   1. For naming the subdirectory, you can refer to the table with directory names for NI and custom
+   instruments in the [Note](#note) section.
+   2. Following this convention, we have named the subdirectories as `nidcpower`, `nidmm` and
+   `keysightdmm` in the above mentioned example.
+6. Each of these created subdirectories must contain a module (`.py` file) with the same name as the
+   directory.
+   1. The module must have a `Session` class which inherits the abstract classes of the required
+      instrument functionalities and implements its methods.  
+      ![FAL Implementation](FAL%20Implementation.png)
 
 ## Directory structure of FAL
 

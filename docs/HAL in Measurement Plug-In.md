@@ -22,17 +22,35 @@ models without modifying the implementation. This HAL implementation leverages p
 
 ## Steps to implement HAL for a new instrument type
 
-1. To implement HAL for a specific instrument type, create a directory to hold the modules related to the HAL implementation.
-2. Create a python file named after the instrument type. Example: `dmm.py`.
-3. In the above created file, add an abstract class with the methods that should be called using the
-   instrument session. This module will additionally contain create and destroy methods to
-   initialize and close instrument sessions in the measurement using the TestStand fixture module. Refer to this [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/dmm_measurement_hal/dmm_hal/dmm.py) for more insights.
-4. Within the root directory create directories for each instrument model. You can refer to the
-   table with directory names for NI and custom instruments in the [Note](#note) section. Following
-   this, we have named the directories as `nidmm` and `keysightdmm`.
-5. Each of these directories must have a module with the same name as the directory. The module
-   must have a `Session` class which inherits and implements the methods from the abstract class
-   created in the root directory.
+![HAL Structure](<./HAL Structure.png>)
+
+1. To implement HAL for a specific instrument type, create a new directory to contain all files
+   related to the HAL implementation as the first step. This newly created directory will serve as
+   the root directory for the HAL implementation.
+   1. Follow the recommended [directory structure for HAL](#directory-structure-of-hal) when
+      creating the directories for the implementation.
+   2. Add an `__init__.py` file to this directory. This marks the directory as a Python package,
+      allowing you to import the HAL modules into your measurement plug-in.
+2. In the root directory, create a python file named after the specific instrument type. Example:
+   `dmm.py` for digital multimeter.
+3. In the above created file, define an abstract class that specifies the required methods for any
+   instrument model of that instrument type such as session initialization, configuration, and
+   reading measurements.
+   1. This module will additionally contain an initialize method that will reserve and initialize
+   instrument session for the provided pin name, and create and destroy methods that will initialize
+   and close instrument sessions in the measurement using the TestStand fixture module.
+   2. Refer to this
+   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/dmm_measurement_hal/dmm_hal/dmm.py)
+   for more insights.
+4. Within the root directory create subdirectories for each instrument model.
+   1. For naming the directory, you can refer to the table with directory names for NI and custom
+      instruments in the [Note](#note) section.
+   2. Following this convention, we have named the subdirectories as `nidmm` and `keysightdmm` in
+      the above mentioned example..
+5. Each of these created subdirectories must contain a module (`.py` file) with the same name as the
+   directory.
+   1. The module must have a `Session` class which inherits the abstract base class and implements
+      its methods.
 
 ## Directory structure of HAL
 
