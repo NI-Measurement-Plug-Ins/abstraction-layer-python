@@ -33,20 +33,21 @@ models without modifying the implementation. This HAL implementation leverages p
       allowing you to import the HAL modules into your measurement plug-in.
 2. In the root directory, create a python file named after the specific instrument type. Example:
    `dmm.py` for digital multimeter.
-3. In the above created file, define an abstract class that specifies the required methods for any
-   instrument model of that instrument type such as session initialization, configuration, and
-   reading measurements.
-   1. This module will additionally contain an initialize method that will reserve and initialize
-   instrument session for the provided pin name, and create and destroy methods that will initialize
-   and close instrument sessions in the measurement using the TestStand fixture module.
+3. In the `<instrument_type>.py` file, define an abstract base class that specifies all the required
+   methods for instruments of that type. Example: `configure_measurement_digits` and
+   `_initialize_session`.
+   1. Additionally, implement functions to:
+      1. Reserve and initialize instrument session for the provided pin name in the measurement.
+      2. [Optional] Create and destroy methods for instrument sessions that can be used in the
+      TestStand fixture module.
    2. Refer to this
    [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/dmm_measurement_hal/dmm_hal/dmm.py)
    for more insights.
-4. Within the root directory create subdirectories for each instrument model.
+4. Within the root directory, create subdirectories for each instrument model.
    1. For naming the directory, you can refer to the table with directory names for NI and custom
       instruments in the [Note](#note) section.
    2. Following this convention, we have named the subdirectories as `nidmm` and `keysightdmm` in
-      the above mentioned example..
+      the above mentioned example.
 5. Each of these created subdirectories must contain a module (`.py` file) with the same name as the
    directory.
    1. The module must have a `Session` class which inherits the abstract base class and implements
