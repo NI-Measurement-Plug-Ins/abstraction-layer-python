@@ -12,7 +12,9 @@
 
 Hardware Abstraction Layer (HAL) enables users to develop applications agnostic of instrument models
 of a type (like DMM). HAL in Measurement Plug-ins allows users to work with different instrument
-models without modifying the implementation. This HAL implementation leverages pins from the pin map.
+models of the same type (like DMM or SMU) without modifying the implementation. This HAL implementation leverages pins from the pin map to determine the instrument model implementation to execute the operation.
+
+Example usage - A Measurement Plug-in developed with a logic to measure voltage using a DMM can be enable to use a NI DMM, Keysight 34401A or HP 3458A without changes to the measurement logic by leveraging the HAL for DMM type.
 
 ## Pre-requisites
 

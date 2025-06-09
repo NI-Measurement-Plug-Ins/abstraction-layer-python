@@ -10,9 +10,9 @@
 
 ## What is FAL?
 
-The Functional Abstraction Layer (FAL) is a higher-level abstraction layer that provides a more
-functional view of the system. It focuses on abstracting the functionality rather than the
-hardware, allowing software components to interact with each other through well-defined interfaces.
+The Functional Abstraction Layer (FAL) enables users to develop applications agnostic of instrument models and types by abstracting them by their functionality (a DMM and SMU can both measure Voltage).FAL in Measurement Plug-ins allows users to work with different instrument models and types that support same functionality without modifying the implementation. This FAL implementation leverages pins from the pin map to determine the instrument model implementation to achieve the functionality (measure voltage).
+
+Example usage - A Measurement Plug-in developed with a logic to measure voltage can be enable to use a DMM, SMU or a DAQ AI without changes to the measurement logic by leveraging the FAL for measure voltage functionality.
 
 ## Pre-requisites
 
