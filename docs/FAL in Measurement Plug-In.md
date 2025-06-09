@@ -1,48 +1,57 @@
 # Creating a FAL for Use in Measurement Plug-ins
 
-- [Creating a FAL for Use in Measurement Plug-ins](#creating-a-fal-for-use-in-measurement-plug-ins)
-  - [What is FAL?](#what-is-fal)
-  - [Pre-requisites](#pre-requisites)
-  - [Steps to implement FAL for another instrument function](#steps-to-implement-fal-for-another-instrument-function)
-  - [Directory structure of FAL](#directory-structure-of-fal)
-  - [Steps to migrate FAL implementations from other frameworks](#steps-to-migrate-fal-implementations-from-other-frameworks)
-  - [Note](#note)
+- [What is FAL?](#what-is-fal)
+- [Pre-requisites](#pre-requisites)
+- [Steps to implement FAL for another instrument function](#steps-to-implement-fal-for-another-instrument-function)
+- [Directory structure of FAL](#directory-structure-of-fal)
+- [Migrate the existing instrument class to Measurement Plug-In](#migrate-existing-instrument-abstraction-implementations)
+- [Using FAL in Measurement Plug-ins](#using-fal-in-measurement-plug-ins)
+- [Note](#notes)
 
 ## What is FAL?
 
-The Functional Abstraction Layer (FAL) is a higher-level abstraction layer that provides a more
-functional view of the system. It focuses on abstracting the functionality rather than the
-hardware, allowing software components to interact with each other through well-defined interfaces.
+The Functional Abstraction Layer (FAL) enables users to develop applications agnostic of instrument models and types by abstracting them by their functionality (a DMM and SMU can both measure Voltage).FAL in Measurement Plug-ins allows users to work with different instrument models and types that support same functionality without modifying the implementation. This FAL implementation leverages pins from the pin map to determine the instrument model implementation to achieve the functionality (measure voltage).
+
+Example usage - A Measurement Plug-in developed with a logic to measure voltage can be enable to use a DMM, SMU or a DAQ AI without changes to the measurement logic by leveraging the FAL for measure voltage functionality.
 
 ## Pre-requisites
 
-- Fundamental knowledge of FAL.
-- Understanding of the session management in the measurement plug-ins.
-- Intermediate working experience in Python.
+- Fundamentals of FAL
+- Intermediate-level expertise in Python
+- Understanding of the [session management](https://www.ni.com/docs/en-US/bundle/measurementplugins/page/session-management.html) in the measurement plug-ins
 
 ## Steps to implement FAL for another instrument function
 
-1. To implement FAL for a specific instrument type, create a directory to hold the modules related
-   to the FAL implementation.
-2. Create a Python file with a generic name that does not specify the type of instrument.
-   Example: session_helper.py.
-3. This module contains an initialize method which will reserve and initialize the respective
-   instrument sessions. This module will additionally contain methods to initialize instrument
-   sessions in the measurement and create and destroy methods that can be used in the TestStand
-   fixture module.
-4. Create abstract classes for each instrument functionality in separate files such as source
-   voltage, measure voltage, source current, measure current etc. Example: `source_dc_voltage` and
-   `measure_dc_voltage`.
-5. Within the root directory create directories for each instrument model. You can refer to the
-   table with directory names for NI and custom instruments in the [Note](#note) section. Following
-   this, we have named the directories as `nidcpower`, `nidmm` and `keysightdmm`.
-6. Each directory must have a module with the same name as the directory. The module
-   must have a `Session` class which inherits and implements the methods from the appropriate
-   functionality abstract classes created in the root directory.
+![FAL Structure](<./Images/FAL/FAL Structure.png>)
+
+1. To implement FAL, create a new directory to contain all files related to the FAL implementation. This newly created directory will serve as the root directory for the FAL implementation.
+   1. Follow the recommended [directory structure of FAL](#directory-structure-of-fal) when creating
+      directories for the implementation.
+   2. Add an `__init__.py` file to this directory. This marks the directory as a Python package,
+      allowing you to import the FAL modules into your measurement plug-in.
+2. In the root directory, create `session_helper.py` and implement initialize method that will reserve and initialize
+   instrument sessions for the provided pin names in the measurement.
+   1. [Optional] Additionally, implement *create* and *destroy* methods for instrument sessions that can
+      be used in the TestStand fixture module.
+   2. Refer to the `session_helper.py` file in this FAL
+   [example](https://github.com/NI-Measurement-Plug-Ins/abstraction-layer-python/blob/main/source/measurements/source_measure_dc_voltage_fal/fal)
+   for more insight.
+4. Create abstract classes for the required instrument functionalities (such as *source voltage*,
+   *measure voltage*, *source current*, *measure current*, etc.,) as separate Python files in the root
+   directory. Example: `source_dc_voltage.py` and `measure_dc_voltage.py`.
+5. Within the root directory, create subdirectories for each instrument model. Example: `nidcpower`, `nidmm` and `keysightdmm`.
+   1. For naming the subdirectory, refer to the table with directory names for NI and custom
+   instruments in the [Notes](#notes) section.
+6. Each of these subdirectories must contain a module (`.py` file) with the same name as the
+   directory.
+   1. The module must have a `Session` class which inherits the abstract classes of the required
+      instrument functionalities and implements its methods.
+
+![FAL Implementation](<./Images/FAL/FAL Implementation.png>)
 
 ## Directory structure of FAL
 
-1. The recommended directory structure for FAL is shown below:
+The recommended directory structure for FAL is shown below:
 
 ``` bash
 
@@ -50,7 +59,10 @@ hardware, allowing software components to interact with each other through well-
    ├── __init__.py
    ├── session_helper.py
    ├── initialize_session.py
-   ├── <functionality_abstract_classes>.py
+   ├── <functionality_1_abstract_class>.py
+   ├── <functionality_2_abstract_class>.py
+   .
+   ├── <functionality_n_abstract_class>.py
    .
    .
    .
@@ -59,6 +71,7 @@ hardware, allowing software components to interact with each other through well-
    ├── <instrument_model_2>
    │   ├── <instrument_model_2>.py
    │   └── <driver session related files>
+   .
    ├── <other instrument model(s)>
    .
    .
@@ -92,13 +105,25 @@ Example:
 
 ```
 
-## Steps to migrate FAL implementations from other frameworks
+## Migrate existing Instrument Abstraction implementations
 
-- Create a measurement plug-in by following the steps mentioned in
-  [Developing a measurement plug-in with python](https://github.com/ni/measurement-plugin-python?tab=readme-ov-file#developing-measurements-quick-start).
-- Copy the existing FAL classes and modules by following the steps from [Steps to create a new FAL based measurement](#steps-to-implement-fal-for-another-instrument-function) to migrate the existing FAL implementation.
-  
-## Note
+If an class-based implementation of Functional Abstraction Layer exists, the following steps are recommended,
+1. Review the example implementation of the FAL in this repo
+1. Understand the difference in class implementation between the example and existing codebase
+1. Take the example from this repo as starter
+1. Extend the implementation to use the existing codebase by importing and calling at appropriate locations or copying core logic into the new structure.
+1. Package the FAL implementation and deploy for seamless reusability (not covered in this example)
+
+If a non-class-based implementation of Functional Abstraction Layer exists, the following steps are recommended,
+1. Take the example from this repo as starter
+1. Extend the implementation to use the existing codebase by importing and calling at appropriate locations or copying core logic into the new structure.
+1. Package the FAL implementation and deploy for seamless reusability (not covered in this example)
+
+## Using FAL in Measurement Plug-ins
+The following diagram depicts the high level process to use a FAL developed as per the above recommendations in Measurement Plug-ins,
+![Measurement Plug-in Workflow](<./Images/FAL/Measurement with FAL workflow.png>)
+
+## Notes
 
 1. Directory names for different NI instrument types.
 
@@ -112,6 +137,6 @@ Example:
    NI-DAQmx | nidaqmx
    NI-SWITCH | nirelaydriver
 
-2. The instrument type id for custom instruments should be a single word, adhering to Python standards.
+2. The `INSTRUMENT_TYPE_ID` for custom instruments should be a single word, adhering to Python standards.
    Accordingly, the directories for the instrument models should also be in lowercase. Example:
    [`keysightdmm`](../source/measurements/source_measure_dc_voltage_fal/fal/keysightdmm/keysightdmm.py).
