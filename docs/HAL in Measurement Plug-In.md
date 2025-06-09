@@ -5,6 +5,7 @@
 - [Steps to implement HAL for a new instrument type](#steps-to-implement-hal-for-a-new-instrument-type)
 - [Directory structure of HAL](#directory-structure-of-hal)
 - [Migrate existing Instrument Abstraction implementations](#Migrate-existing-Instrument-Abstraction-implementations)
+- [Using HAL in Measurement Plug-ins](#using-hal-in-measurement-plug-ins)
 - [Notes](#notes)
 
 ## What is HAL?
